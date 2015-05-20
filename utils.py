@@ -8,6 +8,10 @@ logging.basicConfig(format=u'%(filename)s[LINE:%(lineno)d]# %(levelname)-8s [%(a
 
 
 def get_win_doc_folder():
+    """
+
+    :return:
+    """
     import ctypes.wintypes
 
     csidl_personal = 5

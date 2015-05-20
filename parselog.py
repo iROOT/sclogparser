@@ -18,7 +18,7 @@ class ParseLog(object):
         self.combat_log = open(os.path.join(path, "combat.log"))
         decorated = []
         for f in [self.game_log, self.combat_log]:
-            decorated.append(((l.split()[0], l) for l in f if l.strip()))
+            decorated.append(((l.split()[0], l[:-1]) for l in f if l.strip()))
         self.log_merge = map(operator.itemgetter(-1), heapq.merge(*decorated))
 
     def __del__(self):
@@ -35,4 +35,4 @@ class ParseLog(object):
         :return:
         """
         for line in self.log_merge:
-            print(line[:-1])
+            print(line)
